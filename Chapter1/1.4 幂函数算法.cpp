@@ -22,7 +22,7 @@ __int64 power ( __int64 a, int n ) { //a^n算法：n >= 0
    return pow; //O(1)
 } //power()
 
-__int64 power2BF_I ( int n ) { //幂函数2^n算法（蛮力迭代版），n >= 0
+__int64 power2BF_I ( int n ) { //幂函数2^n算法（蛮力迭代版），n >= 0 复杂度O(logN) 
    __int64 pow = 1; //O(1)：累积器初始化为2^0
    while ( 0 < n -- ) //O(n)：迭代n轮，每轮都
       pow <<= 1; //O(1)：将累积器翻倍
