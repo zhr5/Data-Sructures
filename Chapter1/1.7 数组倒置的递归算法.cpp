@@ -25,6 +25,13 @@ void reverse1(int *A,int low ,int high){//数组倒置(直接改造而得的迭代版)
 		} 
 	
 }
+
+void reverse2(int *A,int low ,int high){//数组倒置(规范整理后的迭代版)
+	while(low<high){
+		swap(A[low++],A[high--]); 
+	} 
+}
+	
 int main(){
 	int A[7]={1,2,3,4,5,6,7};
 	reverse(A,0,6);
