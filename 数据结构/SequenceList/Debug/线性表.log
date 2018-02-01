@@ -1,8 +1,0 @@
-﻿  SequenceList.cpp
-  正在生成代码...
-g:\数据结构\数据结构\线性表\sequencelist.cpp(69): warning C4715: “PriorElem”: 不是所有的控件路径都返回值
-g:\数据结构\数据结构\线性表\sequencelist.cpp(74): warning C4715: “NextElem”: 不是所有的控件路径都返回值
-  正在跳过...(未检测到相关更改)
-  main.cpp
-  线性表.vcxproj -> G:\数据结构\数据结构\Debug\线性表.exe
-  线性表.vcxproj -> G:\数据结构\数据结构\Debug\线性表.pdb (Partial PDB)
