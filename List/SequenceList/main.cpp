@@ -34,11 +34,11 @@ int main() {
 	ListTraverse(L2);
 	printf("\n");
 
-	//Union(L1, L2);
-	//ListTraverse(L1);
-	SqList Lc;
-	MergeList(L1, L2, Lc);
-	ListTraverse(Lc);
+	Union(L1, L2);
+	ListTraverse(L1);
+	//SqList Lc;
+	//MergeList(L1, L2, Lc);
+	//ListTraverse(Lc);
 
 
 	return 0;

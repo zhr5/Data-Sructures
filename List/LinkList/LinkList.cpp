@@ -14,7 +14,7 @@
 void InitList_L(struct LNode * &L) {
 
 	L=(struct LNode*)malloc(LEN);
-	if (L)	exit(OVERFLOW);
+	if (!L)	exit(OVERFLOW);
 	L->next = NULL;
 
 }
@@ -139,11 +139,11 @@ Status ListInsert_L(struct LNode * &L, int i, ElemType e) {
 	//在带头结点的单链表L中的第i个位置之前插入元素e
 	struct LNode *p = L;
 	int j = 0;
-	while ( p&&j < i - 1) {//寻找第i-1个结点
+	while (NULL!= p&&j < i - 1) {//寻找第i-1个结点
 		p = p->next;
 		++j;
 	}
-	if (!p || j > i - 1)
+	if (NULL==p || j > i - 1)
 		return ERROR;//i小于1或者大于表长加1
 
 	struct LNode *s;
@@ -234,7 +234,7 @@ void MergeList_L(struct LNode * &La, struct LNode * &Lb, struct LNode * &Lc) {
 	struct LNode *pa, *pb,*pc;
 	pa = La->next;
 	pb = Lb->next;
-	Lc = pc = La;//用La的头结点作为Lc的头结点
+	pc = Lc = La;//用La的头结点作为Lc的头结点
 	while (pa&&pb) {
 		if (pa->data <= pb->data) {
 			pc->next = pa;
@@ -253,6 +253,7 @@ void MergeList_L(struct LNode * &La, struct LNode * &Lb, struct LNode * &Lc) {
 			pc->next = pa;		//插入剩余段
 
 		free(Lb);				//释放Lb的头结点
+		Lb = NULL;
 	}
 
 }

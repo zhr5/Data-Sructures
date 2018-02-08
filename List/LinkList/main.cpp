@@ -14,11 +14,11 @@
 
 int main() {
 	struct LNode *La;
-
+	
 	InitList_L(La);
 
 	ListInsert_L(La, 1, 1);
-
+	
 	ListInsert_L(La, 2, 2);
 
 	ListInsert_L(La, 3, 5);
@@ -55,7 +55,9 @@ int main() {
 
 	struct LNode *Lc;
 
-	//invertMergeList(La, Lb, Lc);
+	MergeList_L(La, Lb, Lc);
 
 	ListTraverse_L(Lc, visit_display_L);
+	return 0;
+	
 }
