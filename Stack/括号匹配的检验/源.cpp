@@ -39,6 +39,7 @@ bool IsValid(char *expr) {
 			if (! S.empty() ){		//栈非空，得到栈顶元素
 
 				e = S.top();
+
 				if (-1 == e) {		//栈顶元素与‘）’匹配
 
 					S.pop();		// 删除栈顶元素
