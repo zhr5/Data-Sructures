@@ -100,7 +100,7 @@ bool IsValid(char *expr) {
 
 		default:
 
-			break;
+			break;//·ÇÀ¨ºÅ×Ö·ûÒ»ÂÉºöÂÔ
 
 		} //switch
 
