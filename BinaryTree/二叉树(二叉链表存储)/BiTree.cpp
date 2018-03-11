@@ -143,19 +143,47 @@ Status LevelOrderTraverse(BiTree T, Status(*visit)(TElemType e)) {
 	BiTree p;
 	queue<BiTree>Q;
 	p = T;
-	while(p||)
+	Q.push(T);
+
+	while (!Q.empty()) {
+		p = Q.front();
+		Q.pop();
+		visit(p->data);
+		if (p->lchild != NULL)
+			Q.push(p->lchild);
+		if (p->rchild != NULL)
+			Q.push(p->rchild);
+	
+	}
+
+	return OK;
+}
+/**
+
+* 非递归法实现先序遍历二叉树T
+
+*/
+Status PreOrderTraverse2(BiTree T, Status(*visit)(TElemType e)) {
+	BiTree p = T;
+	stack<BiTree> s;
+	
+	while (p || !s.empty()) {
+		while (p) {
+			visit(p->data);
+			s.push(p);
+			p = p->lchild;
+		}
+		if (!s.empty()) {
+			p = s.top();
+			s.pop();
+			p = p->rchild;
+		}
+	}
+	return OK;
 }
 /**
 
 * 算法6.3，非递归法实现中序遍历二叉树T
-
-*/
-Status PreOrderTraverse2(BiTree T, Status(*visit)(TElemType e)) {
-
-}
-/**
-
-* 非递归法实现后序遍历二叉树T
 
 */
 Status InOrderTraverse2(BiTree T, Status(*visit)(TElemType e)) {
@@ -208,5 +236,69 @@ Status InOrderTraverse3(BiTree T, Status(*visit)(TElemType e)) {
 	}//while
 	return OK;
 }
+/**
 
-Status PostOrderTraverse2(BiTree T, Status(*visit)(TElemType e));
+* 非递归法实现后序遍历二叉树T
+
+*/
+Status PostOrderTraverse2(BiTree T, Status(*visit)(TElemType e)) {
+	stack<BiTree> s;
+	BiTree p = T;
+	int Tag[20];//标志栈
+	int t = 1;
+	while (p || !s.empty()) {
+		while (p) {//向左走到尽头
+			s.push(p);
+			p = p->lchild;
+			Tag[t++] = 0;
+		}
+
+		while (!s.empty() && 1 == Tag[t - 1]) {
+			p = s.top();
+			s.pop();
+			t--;
+			if (ERROR == visit(p->data))
+				return ERROR;
+		}
+
+		if (!s.empty()) {		//结点标志为0，则访问右子树，并将结点标志置为1
+			Tag[t - 1] = 1;
+			p = s.top();
+			p = p->rchild;
+		}
+		else
+			break;
+	}
+	return OK;
+}
+
+
+int	main() {
+	BiTree T;
+	CreateBiTree(T);
+
+	PreOrderTraverse(T,display);
+	printf("\n");
+
+	InOrderTraverse(T, display);
+	printf("\n");
+
+	PostOrderTraverse(T, display);
+	printf("\n");
+
+	LevelOrderTraverse(T, display);
+	printf("\n");
+
+	PreOrderTraverse2(T, display);
+	printf("\n");
+
+	InOrderTraverse2(T, display);
+	printf("\n");
+
+	InOrderTraverse3(T, display);
+	printf("\n");
+
+	PostOrderTraverse2(T, display);
+
+	return 0;
+}
