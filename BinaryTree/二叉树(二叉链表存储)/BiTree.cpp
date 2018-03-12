@@ -183,33 +183,30 @@ Status PreOrderTraverse2(BiTree T, Status(*visit)(TElemType e)) {
 }
 /**
 
-* 算法6.3，非递归法实现中序遍历二叉树T
+* 算法6.2，非递归法实现中序遍历二叉树T
 
 */
 Status InOrderTraverse2(BiTree T, Status(*visit)(TElemType e)) {
 
 	stack<BiTree> S;
 	BiTree p;
-
 	S.push(T);
 
 	while (!S.empty()) {
 
-		while (p == S.top() && p) {
+		while(p==S.top()&&p) {
 
 			S.push(p->lchild);
-		}//while
+		
+		}//if
 			p = S.top();
 			S.pop();
-
-			if (!S.empty()) {
-
+			if(!S.empty()){
 				p = S.top();
 				S.pop();
-
-				if (!visit(p->data))	return ERROR;
+			if (!visit(p->data))	return ERROR;
 				
-				S.push(p->rchild);
+			S.push(p=p->rchild);
 
 			}//if
 
@@ -217,7 +214,11 @@ Status InOrderTraverse2(BiTree T, Status(*visit)(TElemType e)) {
 
 	return OK;
 }
+/**
 
+* 算法6.3，非递归法实现中序遍历二叉树T
+
+*/
 Status InOrderTraverse3(BiTree T, Status(*visit)(TElemType e)) {
 
 	stack<BiTree> s;
@@ -271,11 +272,40 @@ Status PostOrderTraverse2(BiTree T, Status(*visit)(TElemType e)) {
 	}
 	return OK;
 }
+//叶子节点个数
+int LeafNum(BiTree T) {
 
+	int num1, num2;
+	if (T== NULL)
+		return 0;
+	else if (T->lchild == NULL && T->rchild == NULL)
+		return 1;
+	else {
+		num1 = LeafNum(T->lchild);
+		num2 = LeafNum(T->rchild);
+		return (num1 + num2);
+	}
 
+}
+//求二叉树深度
+int DepthOfTree(BiTree T) {
+
+	int lchilddep, rchilddep;
+	if (T == NULL)
+		return 0;
+	else {
+		lchilddep = DepthOfTree(T->lchild);
+		rchilddep = DepthOfTree(T->rchild);
+		return (lchilddep>rchilddep) ? (lchilddep + 1) : (rchilddep + 1);
+	}
+
+}
 int	main() {
 	BiTree T;
 	CreateBiTree(T);
+
+	printf("%d\n",LeafNum(T));
+	printf("%d\n", DepthOfTree(T));
 
 	PreOrderTraverse(T,display);
 	printf("\n");

@@ -5,6 +5,6 @@ c:\program files (x86)\windows kits\10\include\10.0.14393.0\ucrt\math.h(965): wa
   g:\work\data-sructures\binarytree\二叉树(二叉链表存储)\status.h(49): note: 参见“UNDERFLOW”的前一个定义
 g:\work\data-sructures\binarytree\二叉树(二叉链表存储)\bitree.cpp(18): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.14393.0\ucrt\stdio.h(1269): note: 参见“scanf”的声明
-g:\work\data-sructures\binarytree\二叉树(二叉链表存储)\bitree.cpp(198): warning C4700: 使用了未初始化的局部变量“p”
+g:\work\data-sructures\binarytree\二叉树(二叉链表存储)\bitree.cpp(197): warning C4700: 使用了未初始化的局部变量“p”
   二叉树(二叉链表存储).vcxproj -> G:\Work\Data-Sructures\BinaryTree\Debug\二叉树(二叉链表存储).exe
   二叉树(二叉链表存储).vcxproj -> G:\Work\Data-Sructures\BinaryTree\Debug\二叉树(二叉链表存储).pdb (Partial PDB)
