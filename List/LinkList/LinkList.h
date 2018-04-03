@@ -53,7 +53,7 @@ Status ListTraverse_L(struct LNode * &L, Status(*visit)(struct LNode * &));
 
 Status visit_display_L(struct LNode * &L);
 
-
+Status ListInverse_L(struct  LNode *&L);
 
 void CreateList_L(struct LNode * &L, int n);
 

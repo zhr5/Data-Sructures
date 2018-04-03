@@ -176,6 +176,30 @@ Status ListDelete_L(struct LNode * &L, int i, ElemType &e) {
 	return OK;
 
 }
+Status ListInverse_L(struct  LNode *&L) {
+	//对链表进行就地逆置
+	//单链表为空或只有头结点或只有一个元素，不用进行逆置操作  
+	if (L == NULL || L->next == NULL || L->next->next == NULL) 
+		
+		return OK;
+
+	struct  LNode* p = L->next->next;//令p指向线性表中第2个元素a2  
+
+	L->next->next = NULL;//令线性表中第1个元素a1的next为空  
+
+	while (p)
+	{
+		struct LNode* q = p->next;
+		//将p插入到头结点之后  
+		p->next = L->next;
+		L->next = p;
+
+		p = q;//继续访问下一个元素  
+	}
+
+	return OK;
+
+}
 
 Status ListTraverse_L(struct LNode * &L, Status(*visit)(struct LNode * &)) {
 	//要求线性表存在

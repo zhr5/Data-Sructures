@@ -58,6 +58,14 @@ int main() {
 	MergeList_L(La, Lb, Lc);
 
 	ListTraverse_L(Lc, visit_display_L);
+
+	printf("\n");
+
+	ListInverse_L(Lc);
+
+	ListTraverse_L(Lc, visit_display_L);
+
+
 	return 0;
 	
 }
